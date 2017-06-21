@@ -1,1 +1,54 @@
 % mkom_seminar.sty
+\makeatletter
+\def\@makeschapterhead#1{%
+   %%%%%\vspace*{50\p@}% %%% removed!
+   {\parindent \z@ \raggedright
+      \normalfont
+      \interlinepenalty\@M
+      \centering \Large \bfseries  #1\par\nobreak
+      \vskip 5\p@ \thispagestyle{empty}
+   }}
+\makeatother
+\makeatletter
+\renewcommand\section{\@startsection{section}{1}{\z@}%
+   {-3.5ex \@plus -1ex \@minus -.2ex}%
+   {2.3ex \@plus.2ex}%
+   {\centering\normalfont\Large\bfseries}}
+\makeatother
+\makeatletter
+\renewcommand\subsection{\@startsection{section}{1}{\z@}%
+   {-3.5ex \@plus -1ex \@minus -.2ex}%
+   {2.3ex \@plus.2ex}%
+   {\centering\normalfont\large\bfseries}}
+\makeatother
+\makeatletter
+\renewcommand\subsubsection{\@startsection{section}{1}{\z@}%
+   {-3.5ex \@plus -1ex \@minus -.2ex}%
+   {2.3ex \@plus.2ex}%
+   {\normalfont\normalsize\bfseries}}
+\makeatother
+
+\makeatletter
+\newcommand{\bab}[1]{
+   \section*{#1}
+   \addcontentsline{toc}{chapter}{#1}}
+\makeatother
+\makeatletter
+\newcommand{\subbab}[1]{
+   \subsection*{#1}
+   \addcontentsline{toc}{section}{#1}}
+\makeatother
+\makeatletter
+\newcommand{\subsubbab}[1]{
+   \subsubsection*{#1}
+   \addcontentsline{toc}{subsection}{#1}}
+\makeatother
+\makeatletter
+\newcommand{\lampiran}[1]{
+   \renewcommand{\thesection}{\arabic{section}}
+   \refstepcounter{section}
+   \addcontentsline{toc}{section}{{\thesection}. {#1}}
+   \sectionmark{#1}
+   {\noindent \hangindent=8.2em \large \bfseries Lampiran {\thesection}. {#1} \par }
+}
+\makeatother
