@@ -1,7 +1,8 @@
 % mkom_seminar.sty
+
+%% margin, title layout %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \makeatletter
 \def\@makeschapterhead#1{%
-   %%%%%\vspace*{50\p@}% %%% removed!
    {\parindent \z@ \raggedright
       \normalfont
       \interlinepenalty\@M
@@ -9,18 +10,21 @@
       \vskip 5\p@ \thispagestyle{empty}
    }}
 \makeatother
+
 \makeatletter
 \renewcommand\section{\@startsection{section}{1}{\z@}%
    {-3.5ex \@plus -1ex \@minus -.2ex}%
    {2.3ex \@plus.2ex}%
-   {\centering\normalfont\Large\bfseries}}
+   {\centering\normalfont\large\bfseries}}
 \makeatother
+
 \makeatletter
 \renewcommand\subsection{\@startsection{section}{1}{\z@}%
    {-3.5ex \@plus -1ex \@minus -.2ex}%
    {2.3ex \@plus.2ex}%
    {\centering\normalfont\large\bfseries}}
 \makeatother
+
 \makeatletter
 \renewcommand\subsubsection{\@startsection{section}{1}{\z@}%
    {-3.5ex \@plus -1ex \@minus -.2ex}%
@@ -28,6 +32,7 @@
    {\normalfont\normalsize\bfseries}}
 \makeatother
 
+%% newcommand %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \makeatletter
 \newcommand{\bab}[1]{
    \section*{#1}
@@ -43,12 +48,31 @@
    \subsubsection*{#1}
    \addcontentsline{toc}{subsection}{#1}}
 \makeatother
-\makeatletter
-\newcommand{\lampiran}[1]{
-   \renewcommand{\thesection}{\arabic{section}}
-   \refstepcounter{section}
-   \addcontentsline{toc}{section}{{\thesection}. {#1}}
-   \sectionmark{#1}
-   {\noindent \hangindent=8.2em \large \bfseries Lampiran {\thesection}. {#1} \par }
-}
-\makeatother
+
+\newcommand{\Abstract}[1]{\def\@Abstract{#1}}
+\newcommand{\Keywords}[1]{\def\@Keywords{#1}}
+
+%% renew commands %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\bibname}{\centerline{\large{DAFTAR PUSTAKA}}}
+
+%% common packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Membuat seluruh tulisan menjadi Times New Roman.
+\usepackage{pslatex}
+
+% for pdf, bitmapped graphics files
+\usepackage{graphicx}
+\graphicspath{{./fig/}}
+% \DeclareGraphicsExtensions{.pdf,.jpeg,.png,.jpg}
+
+\usepackage{tabto}
+\usepackage{lipsum}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{listings}
+\usepackage{algorithm2e}
+% \usepackage{algorithm}
+
+\usepackage{natbib}
+
