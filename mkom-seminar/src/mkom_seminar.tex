@@ -1,18 +1,17 @@
 % mkom_seminar.tex
 \documentclass[a4paper, 12pt, twoside]{book}
-
 \usepackage{mkom_seminar}
-
-\usepackage{graphicx} % for pdf, bitmapped graphics files
-\graphicspath{{./fig/}}
-% \DeclareGraphicsExtensions{.pdf,.jpeg,.png,.jpg}
-
-\usepackage{tabto}
-
 \input{config}
 
 \begin{document}
-\include{sampul}
-\include{pendahuluan}
+   \input{sampul}
+   \setcounter{page}{1}
 
+   \input{title}
+   \input{abstract}
+   \input{pendahuluan}
+   \input{metode_penelitian}
+   \input{hasil_dan_pembahasan}
+   % \input{simpulan_dan_saran}
+   \input{daftar_pustaka}
 \end{document}
